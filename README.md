@@ -27,7 +27,7 @@ theme = "researcher"
 
 ## Configuration
 A self-explanatory configuration file is present in
-[exampleSite/config.toml](https://github.com/ojroques/hugo-researcher/blob/master/exampleSite/config.toml),
+[exampleSite/config.toml](https://github.com/alamine53/hugo-theme-53/blob/master/exampleSite/config.toml),
 along the files of a demo website.
 
 ## KaTeX
@@ -46,8 +46,8 @@ c & d
 {{< /math >}}
 ```
 Check [this
-issue](https://github.com/ojroques/hugo-researcher/issues/1#issuecomment-697247056)
+issue](https://github.com/alamine53/hugo-theme-53/issues/1#issuecomment-697247056)
 for more details.
 
 ## License
-[GPL-3.0 License](https://github.com/ojroques/hugo-researcher/blob/master/LICENSE)
+[GPL-3.0 License](https://github.com/alamine53/hugo-theme-53/blob/master/LICENSE)
