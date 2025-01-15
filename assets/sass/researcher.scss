@@ -3,12 +3,13 @@ $max-width: {{ .Param "style.pageWidth" | default "750px;" }};
 $avatar-size: {{ .Param "style.avatarSize" | default "90px;" }};
 
 // Colors
-$black: #302A28;
-$accent-color: #a08679;
-$background-color: #F5F4EC;
+$black: {{ .Param "style.black" | default "#302A28" }};
+$accent-color: {{ .Param "style.accentColor" | default "#a08679" }};
+$background-color: {{ .Param "style.backgroundColor" | default "#F5F4EC" }};
 
 // Font
 $font-family: {{ .Param "style.fontFamily" | default "Inconsolata" }};
+$font-family-header: {{ .Param "style.fontFamilyHeader" | default "Space Grotesk" }};
 $font-size: {{ .Param "style.fontSize" | default "12pt" }};
 
 // Margins
@@ -80,7 +81,7 @@ body {
     font-weight: 00;
     letter-spacing: 0.01em;
     // color: $accent-color;
-    font-family: "Space Grotesk", serif;
+    font-family: $font-family-header;
     padding-bottom: 0.5rem;
     text-decoration: none;
 
@@ -89,10 +90,11 @@ body {
 .nav-link {
     @extend %link-dark;
     font-weight: 400;
-    font-family: "Space Grotesk", serif;
+    font-family: $font-family-header;
     font-size: medium;
     text-decoration: none;
 }
+
 .post-metadata {
     display: block;
     margin: 0.1rem;
