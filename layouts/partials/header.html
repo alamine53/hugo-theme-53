@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}">
+          {{ with .Site.Params.logo }}
+            <img src="{{ . | absURL }}" alt="logo">
+          {{ end }}
+          {{ .Site.Title }}
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            {{ $current := . }}
+            {{ range .Site.Menus.main }}
+                <a class="nav-item nav-link mx-1 my-1" href="{{ .URL }}" title="{{ .Name }}">
+                    {{ .Name }}
+                </a>
+            {{ end }}
+        </div>
+    </nav>
+</div>
+<hr>

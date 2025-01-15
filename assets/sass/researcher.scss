@@ -1,0 +1,241 @@
+// Sizes
+$max-width: {{ .Param "style.pageWidth" | default "750px;" }};
+$avatar-size: {{ .Param "style.avatarSize" | default "90px;" }};
+
+// Colors
+$black: #302A28;
+$accent-color: #a08679;
+$background-color: #F5F4EC;
+
+// Font
+$font-family: {{ .Param "style.fontFamily" | default "Inconsolata" }};
+$font-size: {{ .Param "style.fontSize" | default "12pt" }};
+
+// Margins
+$y-small: 0.6rem;
+$y-medium: 2rem;
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $background-color;
+    color: $black;
+}
+
+// Placeholders
+%link-default {
+    color: $black;
+    font-weight: 400;
+    text-decoration: underline dotted;
+    text-underline-offset: 0.2em;
+    text-decoration-color: $black;
+    & * {
+        color: $accent-color;
+    }
+    &:hover {
+        text-decoration: underline dotted;
+        color: $accent-color;
+    }
+}
+%link-dark {
+    color: $black;
+    text-decoration: underline;
+    & * {
+        color: $black;
+    }
+    &:hover {
+        color: $accent-color;
+        text-decoration: underline;
+    }
+}
+%table-cell {
+    border: 1px solid #cccccc;
+    padding: 6px 12px;
+    text-align: left;
+}
+
+// Style
+* {
+    // color: $black;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: 1.2;
+    font-weight: 400;
+    @media screen and (max-width: 480px) {
+        font-size: 10pt; // Smaller font size for mobile devices
+    }
+}
+.container {
+    max-width: $max-width;
+}
+
+.navbar-brand {
+    @extend %link-dark;
+    font-weight: 00;
+    letter-spacing: 0.01em;
+    // color: $accent-color;
+    font-family: "Space Grotesk", serif;
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+
+
+}
+.nav-link {
+    @extend %link-dark;
+    font-weight: 400;
+    font-family: "Space Grotesk", serif;
+    font-size: medium;
+    text-decoration: none;
+}
+.post-metadata {
+    display: block;
+    margin: 0.1rem;
+    padding: 0.01rem;
+    color: #666666;
+}
+
+.date {
+    font-weight: 200;
+}
+.tags {
+    display: flex;
+    flex-direction: row;
+    gap: 0.04rem;
+    text-decoration: none;
+
+}
+.tag {
+    background-color: $accent-color;
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    color: white !important; /* Added !important to override any inherited styles */
+    font-weight: 300;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+#content {
+    flex: 1 0 auto;
+    a {
+        @extend %link-default;
+    }
+    p {
+        margin-bottom: $y-small;
+        font-weight: 300;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Space Grotesk", serif;      
+        font-weight: 500;
+        color: $black;
+        margin: $y-medium 0 $y-small 0;
+        // text-transform: uppercase;
+        // text-decoration: underline;
+    }
+    @for $i from 1 through 4 {
+        h#{$i} {
+            font-size: 1rem + 0.1 * (4 - $i);
+        }
+    }
+    img {
+        display: block;
+        margin: $y-medium auto;
+        max-width: 100%;
+    }
+    img + em {
+        display: block;
+        text-align: left;
+        font-size: 0.8rem;
+        color: #666;
+        margin-top: -1.8rem;
+        margin-bottom: 1.8rem;
+    }
+    .avatar > img {
+        border-radius: 50%;
+        float: right;
+        margin: -8px 0 0 16px;
+        height: $avatar-size;
+        width: $avatar-size;
+    }
+    ol {
+        counter-reset: list;
+        list-style: none;
+        padding-left: 0rem;
+        & > li {
+            display: table-row;
+        }
+        & > li:before {
+            content: "[" counter(list, decimal) "] ";
+            counter-increment: list;
+            display: table-cell;
+            text-align: right;
+            padding-right: .5em;
+        }
+    }
+    .container > ol, .footnotes > ol {
+        padding-left: 0;
+    }
+    ul {
+        list-style: inside;
+        padding-left: 2rem;
+        & > li {
+            list-style-position: outside;
+            margin-left: 1em;
+        }
+    }
+    .container > ul, .footnotes > ul {
+        padding-left: 0;
+    }
+    table {
+        margin: $y-medium auto;
+        width: 100%;
+        & th {
+            @extend %table-cell;
+            font-weight: bold;
+        }
+        & td {
+            @extend %table-cell;
+        }
+        & tr:nth-child(2n) {
+            background-color: #f8f8f8;
+        }
+    }
+    blockquote {
+        border-left: 4px solid;
+        font-style: italic;
+        margin: $y-medium 0;
+        padding: 8px 8px;
+    }
+    code {
+        color: $black;
+        background-color: #f8f8f8;
+        border: 1px solid #cccccc;
+        border-radius: 10%;
+        padding: 0px 4px;
+    }
+    pre code {
+        all: unset;
+    }
+    .highlight {
+        margin: $y-medium auto;
+        & > pre {
+            padding: 8px 8px;
+        }
+    }
+}
+
+#footer {
+    flex-shrink: 0;
+    @extend %link-default;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
