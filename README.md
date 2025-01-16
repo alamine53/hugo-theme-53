@@ -13,23 +13,18 @@ Available fonts:
 
 To add custom fonts, go to baseof.html in "layouts/default" and import the link at the top of the page, then edit config correspondingly. 
 
-## Screenshot
-![thumbnail](https://github.com/ojroques/hugo-researcher/blob/master/images/tn.png)
-
 ## Installation
 This theme uses Sass to generate CSS files so make sure you have the
 *extended* Hugo version installed.
 
 Add the theme to your site's `themes` directory:
 ```bash
-git submodule add https://github.com/ojroques/hugo-researcher.git themes/researcher
-# if your website is not managed by git:
-# git clone https://github.com/ojroques/hugo-researcher.git themes/researcher
+git submodule add https://github.com/alamine53/hugo-theme-53.git themes/theme-53
 ```
 
 Update the theme option in `config.toml`:
 ```toml
-theme = "hugo-theme-53"
+theme = "theme-53"
 ```
 
 ## Configuration
