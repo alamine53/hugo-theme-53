@@ -11,9 +11,11 @@ $background-color: {{ .Param "style.backgroundColor" | default "#F5F4EC" }};
 $font-family: {{ .Param "style.fontFamily" | default "Inconsolata" }};
 $font-family-header: {{ .Param "style.fontFamilyHeader" | default "Space Grotesk" }};
 $font-size: {{ .Param "style.fontSize" | default "12pt" }};
+$letter-spacing: {{ .Param "style.letterSpacing" | default "0.0001em" }};
+$font-weight: {{ .Param "style.fontWeight" | default "400" }};
 
 // Margins
-$y-small: 0.6rem;
+$y-small: 0.5rem;
 $y-medium: 2rem;
 
 html, body {
@@ -66,7 +68,7 @@ body {
     // color: $black;
     font-family: $font-family;
     font-size: $font-size;
-    line-height: 1.2;
+    line-height: 1.1;
     font-weight: 400;
     @media screen and (max-width: 480px) {
         font-size: 10pt; // Smaller font size for mobile devices
@@ -133,16 +135,16 @@ body {
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: "Space Grotesk", serif;      
+        font-family: $font-family-header, serif;      
         font-weight: 500;
         color: $black;
+        letter-spacing: 0.0001em;
         margin: $y-medium 0 $y-small 0;
-        // text-transform: uppercase;
-        // text-decoration: underline;
+        
     }
     @for $i from 1 through 4 {
         h#{$i} {
-            font-size: 1rem + 0.1 * (4 - $i);
+            font-size: 1.4rem + 0.1 * (4 - $i);
         }
     }
     img {
@@ -219,7 +221,7 @@ body {
         background-color: #f8f8f8;
         border: 1px solid #cccccc;
         border-radius: 10%;
-        padding: 0px 4px;
+        padding: 4px 4px;
     }
     pre code {
         all: unset;

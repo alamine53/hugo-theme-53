@@ -1,10 +1,17 @@
 # Researcher
 
 A simple monospaced resume theme for Hugo. It was ported from Jekyll theme
-[ankitsultana/researcher](https://github.com/ankitsultana/researcher).
+[ankitsultana/researcher](https://github.com/ankitsultana/researcher) and [ojroques/hugo-researcher](https://github.com/ojroques/hugo-researcher)
 
-## Adding fonts
-In "layouts/default", go to baseof.html and import the link at the top of the page, then edit config correspondingly. 
+## Typeface
+Available fonts:
+- Inconsolata (default) -> monospace, sans-serif, best in light format
+- Space Grotesk -> monospace, serief, best in medium
+- Inter -> Grotesk style, best in medium for headers
+- Barlow, sans-serif -> round, tight
+- Geist
+
+To add custom fonts, go to baseof.html in "layouts/default" and import the link at the top of the page, then edit config correspondingly. 
 
 ## Screenshot
 ![thumbnail](https://github.com/ojroques/hugo-researcher/blob/master/images/tn.png)
@@ -22,13 +29,16 @@ git submodule add https://github.com/ojroques/hugo-researcher.git themes/researc
 
 Update the theme option in `config.toml`:
 ```toml
-theme = "researcher"
+theme = "hugo-theme-53"
 ```
 
 ## Configuration
 A self-explanatory configuration file is present in
 [exampleSite/config.toml](https://github.com/alamine53/hugo-theme-53/blob/master/exampleSite/config.toml),
 along the files of a demo website.
+
+## Typeface
+
 
 ## KaTeX
 You can enable [KaTeX](https://katex.org/) (math typesetting) by including
