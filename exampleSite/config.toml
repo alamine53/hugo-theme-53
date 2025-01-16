@@ -1,6 +1,8 @@
 title = "Researcher"
 baseURL = "https://example.com"
-theme = "researcher"
+theme = "hugo-theme-53"
+themesDir = "../../"  # Default is "themes"
+
 disableKinds = ["taxonomy", "term"]
 enableEmoji = true
 math = false          # enable KaTeX (https://katex.org/) globally
@@ -11,15 +13,25 @@ googleAnalytics = ""  # add your tracking id
   description = "A simple monospaced resume theme for Hugo."
   favicon = "favicon.ico"  # path to a .ico to use as favicon
   logo = ""  # url or path to a logo to put in the header
+
   [params.footer]
     text = "By Ramzy Al-Amine"
     url = "https://github.com/alamine53/hugo-theme-53"
+  
   [params.style]  # appearance options (can be omitted)
-    fontFamily = "Inconsolata"
+    
+    fontFamily = "Barlow, sans-serif"
+    fontFamilyHeader = "Geist"
+    letterSpacing = ""
+    fontWeight = "600"
+    lineHeight = ""
+    
     pageWidth = "750px"
     avatarSize = "90px"
+
     colorBlack = "#222222"
     colorRed = "#dc3545"
+
   [[params.socialIcons]]
     icon = "fab fa-twitter"
     title = "Twitter"
